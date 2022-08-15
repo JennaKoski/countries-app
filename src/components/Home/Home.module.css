@@ -1,0 +1,10 @@
+.homepage {
+  padding: 4rem;
+  height: 100vh;
+  color: rgb(214, 248, 163);
+  font-size: 1.25rem;
+  background-image: url("../../assets/images/greg-rosenke-GOWz0zTf_vY-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
+}
