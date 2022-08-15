@@ -4,7 +4,10 @@ import classes from "./Home.module.css";
 const Home = () => {
   return (
     <div className={classes.homepage}>
-      This is a country app made in REACT22K course in Business College Helsinki
+      <p className={classes.description}>
+        COUNTRIES APP is a simple app made in REACT22K course in Business
+        College Helsinki.
+      </p>
     </div>
   );
 };
