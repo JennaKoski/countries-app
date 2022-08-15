@@ -1,4 +1,5 @@
 import React from "react";
+import classes from "./Countries.module.css";
 import { useState } from "react";
 import CountryCard from "../CountryCard/CountryCard";
 import axios from "axios";
@@ -27,13 +28,17 @@ const Countries = () => {
   console.log(countries);
 
   return (
-    <div>
+    <div className={classes.countries}>
       {countries.map((country) => {
         return (
           <CountryCard
             key={country.name.official}
+            flag={country.flags.svg}
+            name={country.name.common}
             official={country.name.official}
             languages={country.languages}
+            currencies={country.currencies}
+            population={country.population}
           />
         );
       })}

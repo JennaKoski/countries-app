@@ -1,0 +1,27 @@
+.card {
+  background-color: rgb(119, 121, 120);
+  width: 25vw;
+  height: 25vh;
+  margin: 2rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.name {
+  background-color: turquoise;
+  width: 25vw;
+  height: 10vh;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 5px 5px 0 0;
+}
+
+.flag {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  object-fit: cover;
+  width: 4rem;
+}

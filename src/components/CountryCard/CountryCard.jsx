@@ -11,7 +11,11 @@ const CountryCard = ({
 }) => {
   return (
     <div className={classes.card}>
-      <img className="card_flag" src={flag} alt={name} />
+      <img className={classes.flag} src={flag} alt={name} />
+      <div className={classes.name}>
+        <h2>{name}</h2>
+        <h3>{official}</h3>
+      </div>
       <div>
         <div>Language(s)</div>
         <div>
