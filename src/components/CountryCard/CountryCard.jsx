@@ -14,22 +14,24 @@ const CountryCard = ({
       <img className={classes.flag} src={flag} alt={name} />
       <div className={classes.name}>
         <h2>{name}</h2>
-        <h3>{official}</h3>
+        <h3 className={classes.officialName}>{official}</h3>
       </div>
-      <div>
-        <div>Language(s)</div>
+      <div className={classes.parts}>
         <div>
-          {Object.values(languages || {}).map((value, i) => (
-            <span key={i}>{(i ? ", " : "") + value}</span>
-          ))}
+          <div>Language(s)</div>
+          <div>
+            {Object.values(languages || {}).map((value, i) => (
+              <span key={i}>{(i ? ", " : "") + value}</span>
+            ))}
+          </div>
         </div>
-      </div>
-      <div>
-        <div>Currency(s)</div>
         <div>
-          {Object.values(currencies || {}).map((value, i) => (
-            <span key={i}>{(i ? ", " : "") + value.name} </span>
-          ))}
+          <div>Currency</div>
+          <div>
+            {Object.values(currencies || {}).map((value, i) => (
+              <span key={i}>{(i ? ", " : "") + value.name} </span>
+            ))}
+          </div>
         </div>
       </div>
     </div>
