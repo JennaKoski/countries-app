@@ -33,6 +33,10 @@ const CountryCard = ({
             ))}
           </div>
         </div>
+        <div>
+          <div>Population</div>
+          <div>{population}</div>
+        </div>
       </div>
     </div>
   );

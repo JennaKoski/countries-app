@@ -8,6 +8,7 @@ import { useEffect } from "react";
 const Countries = () => {
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     axios
@@ -27,21 +28,43 @@ const Countries = () => {
 
   console.log(countries);
 
+  const searchCountries = (e) => {
+    setSearch(e.target.value);
+  };
+
   return (
-    <div className={classes.countries}>
-      {countries.map((country) => {
-        return (
-          <CountryCard
-            key={country.name.official}
-            flag={country.flags.svg}
-            name={country.name.common}
-            official={country.name.official}
-            languages={country.languages}
-            currencies={country.currencies}
-            population={country.population}
-          />
-        );
-      })}
+    <div>
+      <div className={classes.search}>
+        <input
+          className={classes.search_input}
+          placeholder="Search"
+          onChange={searchCountries}
+        />
+      </div>
+      <div className={classes.countries}>
+        {countries
+          .filter((country) => {
+            if (search === "") {
+              return country;
+            }
+            return country.name.common
+              .toLowerCase()
+              .includes(search.toLowerCase());
+          })
+          .map((country) => {
+            return (
+              <CountryCard
+                key={country.name.official}
+                flag={country.flags.svg}
+                name={country.name.common}
+                official={country.name.official}
+                languages={country.languages}
+                currencies={country.currencies}
+                population={country.population}
+              />
+            );
+          })}
+      </div>
     </div>
   );
 };
