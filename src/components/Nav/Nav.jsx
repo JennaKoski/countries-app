@@ -1,20 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import classes from "./Nav.module.css";
+import { LinkContainer } from "react-router-bootstrap";
+import Nav from "react-bootstrap/Nav";
 
-const Nav = () => {
+const Navigation = () => {
   return (
-    <nav>
-      <ul className={classes.navlist}>
-        <li className={classes.links}>
-          <Link to="/">HOME</Link>
-        </li>
-        <li className={classes.links}>
-          <Link to="/countries">COUNTRIES</Link>
-        </li>
-      </ul>
-    </nav>
+    <Nav>
+      <LinkContainer to="/">
+        <Nav.Link>Home</Nav.Link>
+      </LinkContainer>
+      <LinkContainer to="/countries">
+        <Nav.Link>Countries</Nav.Link>
+      </LinkContainer>
+    </Nav>
   );
 };
 
-export default Nav;
+export default Navigation;

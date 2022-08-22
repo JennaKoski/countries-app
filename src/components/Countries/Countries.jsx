@@ -5,6 +5,9 @@ import CountryCard from "../CountryCard/CountryCard";
 import axios from "axios";
 import { useEffect } from "react";
 
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+
 const Countries = () => {
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -26,8 +29,6 @@ const Countries = () => {
     return <p>Loading</p>;
   }
 
-  console.log(countries);
-
   const searchCountries = (e) => {
     setSearch(e.target.value);
   };
@@ -35,11 +36,21 @@ const Countries = () => {
   return (
     <div>
       <div className={classes.search}>
-        <input
+        <InputGroup className="mb-3" style={{ width: "70%" }}>
+          <InputGroup.Text id="inputGroup-sizing-default">
+            Search
+          </InputGroup.Text>
+          <Form.Control
+            onChange={searchCountries}
+            aria-label="Default"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </InputGroup>
+        {/* <input
           className={classes.search_input}
           placeholder="Search"
           onChange={searchCountries}
-        />
+        /> */}
       </div>
       <div className={classes.countries}>
         {countries

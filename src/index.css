@@ -6,10 +6,11 @@
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: rgb(46, 45, 45);
+  background-color: rgb(66, 65, 65);
   color: white;
   background-image: url("./assets/images/greg-rosenke-GOWz0zTf_vY-unsplash.jpg");
   background-repeat: no-repeat;
-  /* background-position: right; */
+  background-position: right 35%;
   background-size: cover;
+  background-attachment: fixed;
 }

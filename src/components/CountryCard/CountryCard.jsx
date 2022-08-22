@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./CountryCard.module.css";
+import Card from "react-bootstrap/Card";
 
 const CountryCard = ({
   name,
@@ -10,35 +11,35 @@ const CountryCard = ({
   flag,
 }) => {
   return (
-    <div className={classes.card}>
+    <Card style={{ width: "22rem", margin: "1rem" }}>
       <img className={classes.flag} src={flag} alt={name} />
-      <div className={classes.name}>
+      <Card.Header style={{ color: "black" }}>
         <h2>{name}</h2>
         <h3 className={classes.officialName}>{official}</h3>
-      </div>
-      <div className={classes.parts}>
-        <div>
-          <div>Language(s)</div>
+      </Card.Header>
+      <Card.Body style={{ color: "black" }}>
+        <div className={classes.parts}>
+          <div className="pr-3">Language(s): </div>
           <div>
             {Object.values(languages || {}).map((value, i) => (
               <span key={i}>{(i ? ", " : "") + value}</span>
             ))}
           </div>
         </div>
-        <div>
-          <div>Currency</div>
+        <div className={classes.parts}>
+          <p className="pr-3">Currency: </p>
           <div>
             {Object.values(currencies || {}).map((value, i) => (
-              <span key={i}>{(i ? ", " : "") + value.name} </span>
+              <span key={i}>{(i ? ", " : "") + value.name}</span>
             ))}
           </div>
         </div>
-        <div>
-          <div>Population</div>
+        <div className={classes.parts}>
+          <div className="pr-3">Population: </div>
           <div>{population}</div>
         </div>
-      </div>
-    </div>
+      </Card.Body>
+    </Card>
   );
 };
 
