@@ -1,24 +1,22 @@
-import React from "react";
-import classes from "./CountryCard.module.css";
+import classes from "./CountrySingle.module.css";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
 
-const CountryCard = ({
+const CountrySingle = ({
   name,
+  flag,
   official,
   languages,
   currencies,
   population,
-  flag,
 }) => {
   return (
-    <Card style={{ width: "22rem", margin: "1rem" }}>
+    <Card
+      className={classes.single}
+      style={{ width: "40rem", height: "20rem", margin: "1rem" }}
+    >
       <img className={classes.flag} src={flag} alt={name} />
       <Card.Header style={{ color: "black" }}>
-        <Link to={`/countries/${name}`}>
-          <h2>{name}</h2>
-        </Link>
+        <h2>{name}</h2>
         <h3 className={classes.officialName}>{official}</h3>
       </Card.Header>
       <Card.Body style={{ color: "black" }}>
@@ -42,12 +40,9 @@ const CountryCard = ({
           <div className="pr-3">Population: </div>
           <div>{population}</div>
         </div>
-        <Link to={`/countries/${name}`}>
-          <Button variant="dark">Read more</Button>{" "}
-        </Link>
       </Card.Body>
     </Card>
   );
 };
 
-export default CountryCard;
+export default CountrySingle;
