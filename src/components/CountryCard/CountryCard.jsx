@@ -4,22 +4,15 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
-const CountryCard = ({
-  name,
-  official,
-  languages,
-  currencies,
-  population,
-  flag,
-}) => {
+const CountryCard = ({ name, languages, currencies, population, flag }) => {
   return (
     <Card style={{ width: "22rem", margin: "1rem" }}>
-      <img className={classes.flag} src={flag} alt={name} />
+      <img className={classes.flag} src={flag} alt={name.common} />
       <Card.Header style={{ color: "black" }}>
-        <Link to={`/countries/${name}`}>
-          <h2>{name}</h2>
+        <Link to={`/countries/${name.common}`}>
+          <h2>{name.common}</h2>
         </Link>
-        <h3 className={classes.officialName}>{official}</h3>
+        <h3 className={classes.officialName}>{name.official}</h3>
       </Card.Header>
       <Card.Body style={{ color: "black" }}>
         <div className={classes.parts}>
@@ -42,7 +35,7 @@ const CountryCard = ({
           <div className="pr-3">Population: </div>
           <div>{population}</div>
         </div>
-        <Link to={`/countries/${name}`}>
+        <Link to={`/countries/${name.common}`}>
           <Button variant="dark">Read more</Button>{" "}
         </Link>
       </Card.Body>

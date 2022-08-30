@@ -46,11 +46,6 @@ const Countries = () => {
             aria-describedby="inputGroup-sizing-default"
           />
         </InputGroup>
-        {/* <input
-          className={classes.search_input}
-          placeholder="Search"
-          onChange={searchCountries}
-        /> */}
       </div>
       <div className={classes.countries}>
         {countries
@@ -66,12 +61,13 @@ const Countries = () => {
             return (
               <CountryCard
                 key={country.name.official}
-                flag={country.flags.svg}
-                name={country.name.common}
-                official={country.name.official}
-                languages={country.languages}
-                currencies={country.currencies}
-                population={country.population}
+                {...country}
+                // flag={country.flags.svg}
+                // name={country.name.common}
+                // official={country.name.official}
+                // languages={country.languages}
+                // currencies={country.currencies}
+                // population={country.population}
               />
             );
           })}

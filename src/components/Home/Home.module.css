@@ -3,6 +3,8 @@
   height: 90vh;
   color: rgb(214, 248, 163);
   font-size: 1.2rem;
+  display: flex;
+  align-items: center;
 }
 
 .description {
