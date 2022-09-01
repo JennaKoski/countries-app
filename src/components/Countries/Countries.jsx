@@ -2,32 +2,12 @@ import React from "react";
 import classes from "./Countries.module.css";
 import { useState } from "react";
 import CountryCard from "../CountryCard/CountryCard";
-import axios from "axios";
-import { useEffect } from "react";
 
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
-const Countries = () => {
-  const [countries, setCountries] = useState([]);
-  const [loading, setLoading] = useState(false);
+const Countries = ({ countries }) => {
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    axios
-      .get("https://restcountries.com/v3.1/all")
-      .catch((error) => {
-        console.log(error);
-      })
-      .then((res) => {
-        setCountries(res.data);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return <p>Loading</p>;
-  }
 
   const searchCountries = (e) => {
     setSearch(e.target.value);
@@ -61,7 +41,7 @@ const Countries = () => {
             return (
               <CountryCard
                 key={country.name.official}
-                {...country}
+                country={country}
                 // flag={country.flags.svg}
                 // name={country.name.common}
                 // official={country.name.official}

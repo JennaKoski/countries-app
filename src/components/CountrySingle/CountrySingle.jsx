@@ -1,27 +1,14 @@
 import classes from "./CountrySingle.module.css";
 import Card from "react-bootstrap/Card";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
+// import { useEffect, useState } from "react";
+// import axios from "axios";
 
 const CountrySingle = () => {
-  const [country, setCountry] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    axios
-      .get("https://restcountries.com/v3.1/all")
-      .catch((error) => {
-        console.log(error);
-      })
-      .then((res) => {
-        setCountry(res.data);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return <p>Loading</p>;
-  }
+  const location = useLocation();
+  const country = location.state;
+  console.log(country);
 
   return (
     <Card
@@ -30,11 +17,19 @@ const CountrySingle = () => {
     >
       {/* <img className={classes.flag} src={flag} alt={name} /> */}
       <Card.Header style={{ color: "black" }}>
-        <h2>Name</h2>
-        {/* <h3 className={classes.officialName}>{name.official}</h3> */}
+        <h2>{country.name.common}</h2>
+        <h3 className={classes.officialName}>{country.name.official}</h3>
       </Card.Header>
       <Card.Body style={{ color: "black" }}>
-        <div></div>
+        <div>
+          <p>Capital: {country.capital}</p>
+          <div>
+            Language(s):
+            {Object.values(country.languages || {}).map((value, i) => (
+              <span key={i}>{(i ? ", " : "") + value}</span>
+            ))}
+          </div>
+        </div>
       </Card.Body>
     </Card>
   );
