@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const CountryCard = ({ country }) => {
   return (
-    <Card style={{ width: "22rem", margin: "1rem" }}>
+    <Card style={{ width: "24rem", height: "24rem", margin: "1rem" }}>
       <img
         className={classes.flag}
         src={country.flags.svg}
@@ -20,7 +20,7 @@ const CountryCard = ({ country }) => {
       </Card.Header>
       <Card.Body style={{ color: "black" }}>
         <div className={classes.parts}>
-          <div className="pr-3">Language(s): </div>
+          <p className="pr-3">Language(s): </p>
           <div>
             {Object.values(country.languages || {}).map((value, i) => (
               <span key={i}>{(i ? ", " : "") + value}</span>
@@ -36,7 +36,7 @@ const CountryCard = ({ country }) => {
           </div>
         </div>
         <div className={classes.parts}>
-          <div className="pr-3">Population: </div>
+          <p className="pr-3">Population: </p>
           <div>{country.population}</div>
         </div>
         <Link to={`/countries/${country.name.common}`} state={country}>
