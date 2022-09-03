@@ -1,0 +1,14 @@
+.singleContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  position: relative;
+}
+
+.flag {
+  height: 6rem;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 1px;
+}

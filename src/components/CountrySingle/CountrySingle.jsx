@@ -11,27 +11,33 @@ const CountrySingle = () => {
   console.log(country);
 
   return (
-    <Card
-      className={classes.single}
-      style={{ width: "40rem", height: "20rem", margin: "1rem" }}
-    >
-      {/* <img className={classes.flag} src={flag} alt={name} /> */}
-      <Card.Header style={{ color: "black" }}>
-        <h2>{country.name.common}</h2>
-        <h3 className={classes.officialName}>{country.name.official}</h3>
-      </Card.Header>
-      <Card.Body style={{ color: "black" }}>
-        <div>
-          <p>Capital: {country.capital}</p>
+    <div className={classes.singleContainer}>
+      <Card
+        className={classes.single}
+        style={{ width: "50rem", height: "32rem", margin: "1rem" }}
+      >
+        <img
+          className={classes.flag}
+          src={country.flags.svg}
+          alt={country.name.common}
+        />
+        <Card.Header style={{ color: "black" }}>
+          <h2>{country.name.common}</h2>
+          <h3 className={classes.officialName}>{country.name.official}</h3>
+        </Card.Header>
+        <Card.Body style={{ color: "black" }}>
           <div>
-            Language(s):
-            {Object.values(country.languages || {}).map((value, i) => (
-              <span key={i}>{(i ? ", " : "") + value}</span>
-            ))}
+            <p>Capital: {country.capital}</p>
+            <div>
+              Language(s):
+              {Object.values(country.languages || {}).map((value, i) => (
+                <span key={i}>{(i ? ", " : "") + value}</span>
+              ))}
+            </div>
           </div>
-        </div>
-      </Card.Body>
-    </Card>
+        </Card.Body>
+      </Card>
+    </div>
   );
 };
 
