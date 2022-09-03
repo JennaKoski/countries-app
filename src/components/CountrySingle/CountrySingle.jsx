@@ -8,12 +8,12 @@ const CountrySingle = () => {
   const location = useLocation();
   const country = location.state;
   const [weather, setWeather] = useState([]);
-  const APIkey = process.env.REACT_APP_WEATHER_API_KEY;
+  const api_key = process.env.REACT_APP_WEATHER_API_KEY;
 
   useEffect(() => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${country.name.common}&appid=${APIkey}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${country.name.common}&units=metric&appid=${api_key}`
       )
       .catch((error) => console.log(error))
       .then((res) => setWeather(res.data));
@@ -46,20 +46,21 @@ const CountrySingle = () => {
               ))}
             </p>
             <div className={classes.parts}>
-              <p className="pr-3">Currency: </p>
               <p>
+                Currency:{" "}
                 {Object.values(country.currencies || {}).map((value, i) => (
                   <span key={i}>{(i ? ", " : "") + value.name}</span>
                 ))}
               </p>
             </div>
             <div className={classes.parts}>
-              <p className="pr-3">Population: </p>
-              <p>{country.population}</p>
+              <p>Population: {country.population}</p>
             </div>
           </div>
           <div className={classes.weather}>
-            <p>Weather: {weather.main.temp}</p>
+            <h3>Current weather in {weather.name}:</h3>
+            <p>Temperature: {weather.main.temp} °C</p>
+            <p>Wind: {weather.wind.speed} m/s</p>
           </div>
         </Card.Body>
       </Card>
