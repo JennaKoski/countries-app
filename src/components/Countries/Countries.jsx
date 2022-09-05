@@ -3,6 +3,7 @@ import CountryCard from "../CountryCard/CountryCard";
 
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import Spinner from "react-bootstrap/Spinner";
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -57,7 +58,11 @@ const Countries = () => {
       </div>
     </div>
   ) : (
-    "Loading"
+    <div className={classes.loading}>
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    </div>
   );
 };
 

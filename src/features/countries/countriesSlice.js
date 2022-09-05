@@ -25,7 +25,7 @@ export const initializeCountries = () => {
   return async (dispatch) => {
     const countries = await countryService.getAll();
     dispatch(getCountries(countries));
-    dispatch(isLoading(false));
+    dispatch(isLoading(true));
   };
 };
 
