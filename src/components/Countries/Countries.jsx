@@ -1,19 +1,31 @@
 import React from "react";
-import classes from "./Countries.module.css";
-import { useState } from "react";
 import CountryCard from "../CountryCard/CountryCard";
 
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
-const Countries = ({ countries }) => {
-  const [search, setSearch] = useState("");
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { search } from "../../features/countries/countriesSlice";
+import { initializeCountries } from "../../features/countries/countriesSlice";
+
+import classes from "./Countries.module.css";
+
+const Countries = () => {
+  const dispatch = useDispatch();
+  const countriesList = useSelector((state) => state.countries.countries);
+  const searchInput = useSelector((state) => state.countries.search);
+  const loading = useSelector((state) => state.countries.isLoading);
 
   const searchCountries = (e) => {
-    setSearch(e.target.value);
+    dispatch(search(e.target.value));
   };
 
-  return (
+  useEffect(() => {
+    dispatch(initializeCountries());
+  }, [dispatch]);
+
+  return !loading ? (
     <div>
       <div className={classes.search}>
         <InputGroup className="mb-3" style={{ width: "70%" }}>
@@ -28,31 +40,24 @@ const Countries = ({ countries }) => {
         </InputGroup>
       </div>
       <div className={classes.countries}>
-        {countries
+        {countriesList
           .filter((country) => {
-            if (search === "") {
+            if (searchInput === "") {
               return country;
             }
             return country.name.common
               .toLowerCase()
-              .includes(search.toLowerCase());
+              .includes(searchInput.toLowerCase());
           })
           .map((country) => {
             return (
-              <CountryCard
-                key={country.name.official}
-                country={country}
-                // flag={country.flags.svg}
-                // name={country.name.common}
-                // official={country.name.official}
-                // languages={country.languages}
-                // currencies={country.currencies}
-                // population={country.population}
-              />
+              <CountryCard key={country.name.official} country={country} />
             );
           })}
       </div>
     </div>
+  ) : (
+    "Loading"
   );
 };
 
