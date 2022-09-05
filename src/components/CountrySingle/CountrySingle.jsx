@@ -8,20 +8,24 @@ const CountrySingle = () => {
   const location = useLocation();
   const country = location.state;
   const [weather, setWeather] = useState([]);
+  const [loading, setLoading] = useState(true);
   const api_key = process.env.REACT_APP_WEATHER_API_KEY;
 
   useEffect(() => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${country.name.common}&units=metric&appid=${api_key}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${country?.name?.common}&units=metric&appid=` +
+          api_key
       )
       .catch((error) => console.log(error))
-      .then((res) => setWeather(res.data));
+      .then((res) => {
+        setWeather(res.data);
+        setLoading(false);
+      });
+    // eslint-disable-next-line
   }, []);
 
-  console.log(weather);
-
-  return (
+  return !loading ? (
     <div className={classes.singleContainer}>
       <Card
         className={classes.single}
@@ -65,6 +69,8 @@ const CountrySingle = () => {
         </Card.Body>
       </Card>
     </div>
+  ) : (
+    "Loading"
   );
 };
 
