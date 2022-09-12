@@ -3,8 +3,12 @@ import classes from "./CountryCard.module.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { addFavorites } from "../../features/countries/cartSlice";
+import { useDispatch } from "react-redux";
 
 const CountryCard = ({ country }) => {
+  const dispatch = useDispatch();
+
   return (
     <Card style={{ width: "24rem", height: "24rem", margin: "1rem" }}>
       <img
@@ -38,14 +42,18 @@ const CountryCard = ({ country }) => {
           <div>{country.population}</div>
         </div>
         <Link to={`/countries/${country.name.common}`} state={country}>
-          <Button variant="dark">Read more</Button>{" "}
+          <Button variant="secondary">Read more</Button>{" "}
         </Link>
-        <div>
-          <input type="radio" />
+        <div className={classes.addFavorite}>
+          <Button
+            variant="info"
+            onClick={() => dispatch(addFavorites(country))}
+          >
+            Add to favorites
+          </Button>
         </div>
       </Card.Body>
     </Card>
-    // </LinkContainer>
   );
 };
 

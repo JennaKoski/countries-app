@@ -1,13 +1,10 @@
 import React from "react";
 import CountryCard from "../CountryCard/CountryCard";
 
-// import Form from "react-bootstrap/Form";
-// import InputGroup from "react-bootstrap/InputGroup";
 import Spinner from "react-bootstrap/Spinner";
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { search } from "../../features/countries/countriesSlice";
 import { initializeCountries } from "../../features/countries/countriesSlice";
 
 import classes from "./Countries.module.css";
@@ -19,10 +16,6 @@ const Countries = () => {
   const searchInput = useSelector((state) => state.countries.search);
   const loading = useSelector((state) => state.countries.isLoading);
 
-  // const searchCountries = (e) => {
-  //   dispatch(search(e.target.value));
-  // };
-
   useEffect(() => {
     dispatch(initializeCountries());
   }, [dispatch]);
@@ -31,16 +24,6 @@ const Countries = () => {
     <div>
       <div className={classes.search}>
         <Search />
-        {/* <InputGroup className="mb-3" style={{ width: "70%" }}>
-          <InputGroup.Text id="inputGroup-sizing-default">
-            Search
-          </InputGroup.Text>
-          <Form.Control
-            onChange={searchCountries}
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </InputGroup> */}
       </div>
       <div className={classes.countries}>
         {countriesList
