@@ -3,12 +3,9 @@ import classes from "./CountryCard.module.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-// import { LinkContainer } from "react-router-bootstrap";
 
 const CountryCard = ({ country }) => {
   return (
-    // <LinkContainer to={`/countries/${country.name.common}`} state={country}>
-    //   >
     <Card style={{ width: "24rem", height: "24rem", margin: "1rem" }}>
       <img
         className={classes.flag}
@@ -16,9 +13,7 @@ const CountryCard = ({ country }) => {
         alt={country.name.common}
       />
       <Card.Header style={{ color: "black" }}>
-        {/* <Link to={`/countries/${country.name.common}`} state={country}> */}
         <h2>{country.name.common}</h2>
-        {/* </Link> */}
         <h3 className={classes.officialName}>{country.name.official}</h3>
       </Card.Header>
       <Card.Body style={{ color: "black" }}>
@@ -45,6 +40,9 @@ const CountryCard = ({ country }) => {
         <Link to={`/countries/${country.name.common}`} state={country}>
           <Button variant="dark">Read more</Button>{" "}
         </Link>
+        <div>
+          <input type="radio" />
+        </div>
       </Card.Body>
     </Card>
     // </LinkContainer>

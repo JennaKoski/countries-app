@@ -12,6 +12,9 @@ const Navigation = () => {
       <LinkContainer to="/countries">
         <Nav.Link className={classes.navigation}>COUNTRIES</Nav.Link>
       </LinkContainer>
+      <LinkContainer to="/favorites">
+        <Nav.Link className={classes.navigation}>FAVORITES</Nav.Link>
+      </LinkContainer>
     </Nav>
   );
 };

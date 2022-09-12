@@ -5,6 +5,7 @@ import Layout from "./pages/Layout";
 import Home from "./components/Home/Home";
 import Countries from "./components/Countries/Countries";
 import CountrySingle from "./components/CountrySingle/CountrySingle";
+import Favorites from "./components/Favorites/Favorites";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="countries" element={<Countries />} />
           <Route path="countries/:name" element={<CountrySingle />} />
+          <Route path="favorites" element={<Favorites />} />
         </Route>
       </Routes>
     </BrowserRouter>
