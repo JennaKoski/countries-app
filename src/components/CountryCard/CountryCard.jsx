@@ -3,7 +3,10 @@ import classes from "./CountryCard.module.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { addFavorites } from "../../features/countries/cartSlice";
+import {
+  addFavorites,
+  removeFavorites,
+} from "../../features/countries/cartSlice";
 import { useDispatch } from "react-redux";
 
 const CountryCard = ({ country }) => {
@@ -50,6 +53,12 @@ const CountryCard = ({ country }) => {
             onClick={() => dispatch(addFavorites(country))}
           >
             Add to favorites
+          </Button>
+          <Button
+            variant="info"
+            onClick={() => dispatch(removeFavorites(country))}
+          >
+            Remove to favorites
           </Button>
         </div>
       </Card.Body>
