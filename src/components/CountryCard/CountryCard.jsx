@@ -14,14 +14,14 @@ const CountryCard = ({ country }) => {
   const fav = useSelector((state) => state.favorites.favorites);
 
   return (
-    <Card style={{ width: "24rem", height: "24rem", margin: "1rem" }}>
+    <Card style={{ width: "24rem", height: "26rem", margin: "1rem" }}>
       <img
         className={classes.flag}
         src={country.flags.svg}
         alt={country.name.common}
       />
-      <Card.Header style={{ color: "black" }}>
-        <h2>{country.name.common}</h2>
+      <Card.Header style={{ color: "black", padding: "1.2rem" }}>
+        <h2 className={classes.name}>{country.name.common}</h2>
         <h3 className={classes.officialName}>{country.name.official}</h3>
       </Card.Header>
       <Card.Body style={{ color: "black" }}>

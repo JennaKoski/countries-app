@@ -1,18 +1,13 @@
 .name {
-  background-color: rgb(21, 204, 186);
-  width: 30vw;
-  height: 12vh;
-  text-align: center;
-  padding: 2rem;
-  border-radius: 5px 5px 0 0;
+  font-size: 1.6rem;
 }
 
 .flag {
   position: absolute;
-  top: -15px;
-  right: -10px;
+  top: -20px;
+  right: -20px;
   object-fit: cover;
-  width: 4rem;
+  width: 5rem;
   border-radius: 2px;
 }
 

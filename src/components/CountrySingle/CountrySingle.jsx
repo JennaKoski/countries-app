@@ -63,10 +63,10 @@ const CountrySingle = () => {
             </div>
           </div>
           <div className={classes.weather}>
-            <h3>Current weather in {weather.name}:</h3>
-            <p>Temperature: {weather.main.temp} °C</p>
-            <p>Wind: {weather.wind.speed} m/s</p>
-            <p></p>
+            <h3>Current weather in {weather?.name}:</h3>
+            <p>Temperature: {weather?.main?.temp} °C</p>
+            <p>Wind: {weather?.wind?.speed} m/s</p>
+            <p>Description: {weather?.weather[0]?.description}</p>
           </div>
         </Card.Body>
       </Card>
