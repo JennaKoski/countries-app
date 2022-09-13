@@ -7,10 +7,11 @@ import {
   addFavorites,
   removeFavorites,
 } from "../../features/countries/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const CountryCard = ({ country }) => {
   const dispatch = useDispatch();
+  const fav = useSelector((state) => state.favorites.favorites);
 
   return (
     <Card style={{ width: "24rem", height: "24rem", margin: "1rem" }}>
@@ -48,18 +49,22 @@ const CountryCard = ({ country }) => {
           <Button variant="secondary">Read more</Button>{" "}
         </Link>
         <div className={classes.addFavorite}>
-          <Button
-            variant="info"
-            onClick={() => dispatch(addFavorites(country))}
-          >
-            Add to favorites
-          </Button>
-          <Button
-            variant="info"
-            onClick={() => dispatch(removeFavorites(country))}
-          >
-            Remove to favorites
-          </Button>
+          {fav.some((item) => item.name.common === country.name.common) ? (
+            <Button
+              variant="info"
+              onClick={() => dispatch(removeFavorites(country))}
+            >
+              Remove from favorites
+            </Button>
+          ) : (
+            <Button
+              className={classes.button}
+              variant="info"
+              onClick={() => dispatch(addFavorites(country))}
+            >
+              Add to favorites
+            </Button>
+          )}
         </div>
       </Card.Body>
     </Card>

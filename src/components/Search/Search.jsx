@@ -11,9 +11,8 @@ const Search = () => {
     dispatch(search(e.target.value));
   };
 
-  const clearSearch = (e) => {
+  const clearSearch = () => {
     dispatch(search(""));
-    e.searchInput.value = "";
   };
 
   return (
