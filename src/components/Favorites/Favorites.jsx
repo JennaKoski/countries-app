@@ -8,7 +8,7 @@ const Favorites = () => {
   const searchInput = useSelector((state) => state.countries.search);
   const favList = useSelector((state) => state.favorites.favorites);
 
-  return (
+  return favList.length ? (
     <div>
       <div className={classes.search}>
         <Search />
@@ -28,6 +28,10 @@ const Favorites = () => {
           })}
       </div>
     </div>
+  ) : (
+    <p className={classes.alternativeText}>
+      Favorites is empty, go back to COUNTRIES and choose your favorites
+    </p>
   );
 };
 

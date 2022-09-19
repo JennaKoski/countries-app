@@ -1,5 +1,6 @@
 .name {
   font-size: 1.6rem;
+  text-align: center;
 }
 
 .flag {
@@ -7,13 +8,15 @@
   top: -20px;
   right: -20px;
   object-fit: cover;
-  width: 5rem;
+  width: 6rem;
   border-radius: 2px;
+  box-shadow: 0 0 5px black;
 }
 
 .officialName {
   font-size: 1rem;
   font-weight: 400;
+  text-align: center;
 }
 
 .parts {
@@ -23,6 +26,20 @@
   font-size: 0.8rem;
 }
 
-.addFavorite {
-  margin-top: 1rem;
+.addButton {
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+}
+
+.addButton:hover {
+  color: rgb(177, 139, 14);
+  box-shadow: 0 0 5px rgb(27, 27, 27);
+}
+
+.removeButton {
+  background-color: rgb(251, 202, 40);
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 0 5px rgb(27, 27, 27);
 }
