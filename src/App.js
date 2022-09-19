@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
@@ -6,8 +6,17 @@ import Home from "./components/Home/Home";
 import Countries from "./components/Countries/Countries";
 import CountrySingle from "./components/CountrySingle/CountrySingle";
 import Favorites from "./components/Favorites/Favorites";
+import { useDispatch, useSelector } from "react-redux";
+import { saveToLocalStorage } from "./features/countries/cartSlice";
 
 const App = () => {
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favorites.favorites);
+
+  useEffect(() => {
+    saveToLocalStorage(favorites);
+  }, [dispatch, favorites]);
+
   return (
     <BrowserRouter>
       <Routes>
