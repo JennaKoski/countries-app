@@ -14,7 +14,7 @@ const CountryCard = ({ country }) => {
   const fav = useSelector((state) => state.favorites.favorites);
 
   return (
-    <Card style={{ width: "24rem", height: "26rem", margin: "1rem" }}>
+    <Card style={{ width: "24rem", height: "28rem", margin: "1rem" }}>
       <img
         className={classes.flag}
         src={country.flags.svg}
