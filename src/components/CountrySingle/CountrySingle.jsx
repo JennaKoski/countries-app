@@ -30,7 +30,7 @@ const CountrySingle = () => {
     <div className={classes.singleContainer}>
       <Card
         className={classes.single}
-        style={{ width: "50rem", height: "32rem", margin: "1rem" }}
+        style={{ width: "50rem", height: "37rem", margin: "1rem" }}
       >
         <img
           className={classes.flag}
@@ -67,6 +67,11 @@ const CountrySingle = () => {
             <p>Temperature: {weather?.main?.temp} °C</p>
             <p>Wind: {weather?.wind?.speed} m/s</p>
             <p>Description: {weather?.weather[0]?.description}</p>
+            <img
+              className={classes.icon}
+              src={`http://openweathermap.org/img/wn/${weather?.weather[0]?.icon}@2x.png`}
+              alt="weather icon"
+            />
           </div>
         </Card.Body>
       </Card>

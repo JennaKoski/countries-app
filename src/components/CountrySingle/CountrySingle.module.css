@@ -23,3 +23,10 @@
   align-items: center;
   padding-top: 10rem;
 }
+
+.icon {
+  box-shadow: inset 0 0 5px rgb(17, 17, 17);
+  /* background-color: rgb(247, 222, 140); */
+  border: none;
+  border-radius: 50%;
+}
