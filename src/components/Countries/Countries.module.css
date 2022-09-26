@@ -1,3 +1,7 @@
+.countryContainer {
+  position: relative;
+}
+
 .countries {
   display: flex;
   flex-wrap: wrap;
@@ -13,8 +17,9 @@
   margin-top: 2rem;
 }
 
-.search_input {
-  width: 20vw;
-  height: 5vh;
-  border-radius: 5px;
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10rem;
 }

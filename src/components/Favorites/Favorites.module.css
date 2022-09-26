@@ -1,0 +1,23 @@
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.favorites {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.alternativeText {
+  margin: 8rem;
+  padding: 1.5rem;
+  background-color: rgb(43, 42, 42);
+  color: white;
+  font-size: 1.8rem;
+  border-radius: 5px;
+}

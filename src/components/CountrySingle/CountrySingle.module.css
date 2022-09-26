@@ -1,18 +1,41 @@
 .singleContainer {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+  margin: 3rem;
   position: relative;
 }
 
+.singleHeader {
+  background-color: rgb(121, 248, 170);
+}
 .flag {
   height: 5.5rem;
   position: absolute;
   top: 5px;
   right: 5px;
-  border-radius: 1px;
+  border-radius: 2px;
 }
 
 .weather {
   margin-top: 2rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10rem;
+}
+
+.icon {
+  filter: drop-shadow(1px 1px 2px black);
+}
+
+.backToCountriesButton {
+  background-color: rgb(121, 122, 122);
+  border: none;
+}
+
+.backToCountriesButton:hover {
+  background-color: rgb(92, 94, 94);
 }
