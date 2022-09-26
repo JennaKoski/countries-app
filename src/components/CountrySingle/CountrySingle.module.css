@@ -1,10 +1,13 @@
 .singleContainer {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+  margin: 3rem;
   position: relative;
 }
 
+.singleHeader {
+  background-color: rgb(121, 248, 170);
+}
 .flag {
   height: 5.5rem;
   position: absolute;
@@ -25,8 +28,14 @@
 }
 
 .icon {
-  box-shadow: inset 0 0 5px rgb(17, 17, 17);
-  /* background-color: rgb(247, 222, 140); */
+  filter: drop-shadow(1px 1px 2px black);
+}
+
+.backToCountriesButton {
+  background-color: rgb(121, 122, 122);
   border: none;
-  border-radius: 50%;
+}
+
+.backToCountriesButton:hover {
+  background-color: rgb(92, 94, 94);
 }

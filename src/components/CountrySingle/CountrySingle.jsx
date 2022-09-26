@@ -1,10 +1,12 @@
 import classes from "./CountrySingle.module.css";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 import Card from "react-bootstrap/Card";
 import Spinner from "react-bootstrap/Spinner";
+import Button from "react-bootstrap/esm/Button";
+import millify from "millify";
 
 const CountrySingle = () => {
   const location = useLocation();
@@ -30,14 +32,17 @@ const CountrySingle = () => {
     <div className={classes.singleContainer}>
       <Card
         className={classes.single}
-        style={{ width: "50rem", height: "37rem", margin: "1rem" }}
+        style={{ width: "50rem", height: "40rem", margin: "1rem" }}
       >
         <img
           className={classes.flag}
           src={country.flags.svg}
           alt={country.name.common}
         />
-        <Card.Header style={{ color: "black" }}>
+        <Card.Header
+          className={classes.singleHeader}
+          style={{ color: "black" }}
+        >
           <h2>{country.name.common}</h2>
           <h3 className={classes.officialName}>{country.name.official}</h3>
         </Card.Header>
@@ -59,7 +64,7 @@ const CountrySingle = () => {
               </p>
             </div>
             <div className={classes.parts}>
-              <p>Population: {country.population}</p>
+              <p>Population: {millify(country.population)}</p>
             </div>
           </div>
           <div className={classes.weather}>
@@ -73,6 +78,11 @@ const CountrySingle = () => {
               alt="weather icon"
             />
           </div>
+          <Link to="/countries">
+            <Button className={classes.backToCountriesButton}>
+              Back to Countries
+            </Button>
+          </Link>
         </Card.Body>
       </Card>
     </div>

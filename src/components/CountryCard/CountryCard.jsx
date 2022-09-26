@@ -8,19 +8,23 @@ import {
   removeFavorites,
 } from "../../features/countries/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
+import millify from "millify";
 
 const CountryCard = ({ country }) => {
   const dispatch = useDispatch();
   const fav = useSelector((state) => state.favorites.favorites);
 
   return (
-    <Card style={{ width: "24rem", height: "28rem", margin: "1rem" }}>
+    <Card style={{ width: "24rem", height: "30rem", margin: "2rem" }}>
       <img
         className={classes.flag}
         src={country.flags.svg}
         alt={country.name.common}
       />
-      <Card.Header style={{ color: "black", padding: "1.2rem" }}>
+      <Card.Header
+        className={classes.cardHeader}
+        style={{ color: "black", padding: "1.2rem" }}
+      >
         <div className={classes.cardHeader}>
           <div className={classes.addFavorite}>
             {fav.some((item) => item.name.common === country.name.common) ? (
@@ -31,8 +35,8 @@ const CountryCard = ({ country }) => {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="35"
-                  height="35"
+                  width="36"
+                  height="36"
                   fill="currentColor"
                   className="bi bi-emoji-heart-eyes"
                   viewBox="0 0 16 16"
@@ -49,8 +53,8 @@ const CountryCard = ({ country }) => {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="35"
-                  height="35"
+                  width="36"
+                  height="36"
                   fill="currentColor"
                   className="bi bi-emoji-heart-eyes"
                   viewBox="0 0 16 16"
@@ -65,7 +69,7 @@ const CountryCard = ({ country }) => {
         </div>
         <h3 className={classes.officialName}>{country.name.official}</h3>
       </Card.Header>
-      <Card.Body style={{ color: "black" }}>
+      <Card.Body className={classes.cardBody} style={{ color: "black" }}>
         <div className={classes.parts}>
           <p className="pr-3">Language(s): </p>
           <div>
@@ -84,7 +88,7 @@ const CountryCard = ({ country }) => {
         </div>
         <div className={classes.parts}>
           <p className="pr-3">Population: </p>
-          <div>{country.population}</div>
+          <div>{millify(country.population)}</div>
         </div>
         <Link to={`/countries/${country.name.common}`} state={country}>
           <Button variant="secondary">Read more</Button>{" "}
