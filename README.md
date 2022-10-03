@@ -1,5 +1,9 @@
 # Countries App
 
+Contries app shows basic information about countries. This app is made with React and Redux toolkit. React Bootstrap is used.
+
+## APIs
+
 Countries app uses https://restcountries.com/ to show information like languages, population etc. about countries. By clicking "Read more" you will find more info, including current weather of the capital. The weather information comes from https://openweathermap.org/.
 
 ## Running the project
