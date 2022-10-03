@@ -1,6 +1,6 @@
 # Countries App
 
-Contries app shows basic information about countries. This app is made with React and Redux toolkit. React Bootstrap is used.
+Contries app is made with React and uses Redux toolkit and React Bootstrap. The app shows basic information about countries and you can add them to your favorites by clicking the emoji with heart-eyes.
 
 ## APIs
 
